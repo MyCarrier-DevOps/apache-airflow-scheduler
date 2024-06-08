@@ -25,5 +25,5 @@ COPY requirements.txt .
 RUN apt-get update && apt-get install unixodbc unixodbc-dev -y
 
 USER 1001
-RUN pip install -r requirements.txt
+RUN . /opt/bitnami/airflow/venv/bin/activate && pip install -r requirements.txt; deactivate
 
